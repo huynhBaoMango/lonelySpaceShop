@@ -4,10 +4,12 @@ public class moving : MonoBehaviour
 {
     public float moveSpeed = 5f; // Tốc độ di chuyển
     private Animator animator; // Tham chiếu đến Animator
+    private SpriteRenderer sprenderer;
 
     private void Start()
     {
         animator = GetComponent<Animator>(); // Lấy Animator từ đối tượng
+        sprenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -30,6 +32,15 @@ public class moving : MonoBehaviour
         else
         {
             animator.SetInteger("action", 0); // Đặt trạng thái đứng yên
+        }
+
+        if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            sprenderer.flipX = false;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            sprenderer.flipX = true;
         }
     }
 }
