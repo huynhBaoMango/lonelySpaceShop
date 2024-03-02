@@ -19,7 +19,7 @@ public class moving : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         // Tính toán hướng di chuyển
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed;
+        Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f) * moveSpeed;
 
         // Áp dụng chuyển động cho Rigidbody của nhân vật
         GetComponent<Rigidbody2D>().velocity = movement;
